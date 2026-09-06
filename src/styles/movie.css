@@ -1,0 +1,264 @@
+.movie-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  background: #171717;
+  color: #ffffff;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.movie-card:hover {
+  transform: translateY(-5px);
+  border-color: #444444;
+}
+
+.movie-card-poster {
+  position: relative;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  cursor: pointer;
+  background: #222222;
+}
+
+.movie-card-poster img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.movie-card-no-poster {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888888;
+  font-size: 14px;
+}
+
+.movie-card-content {
+  padding: 14px;
+}
+
+.movie-card-title {
+  margin: 0 0 10px;
+  font-size: 17px;
+  line-height: 1.3;
+}
+
+.movie-card-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: #aaaaaa;
+  font-size: 13px;
+}
+
+.movie-card-info span {
+  padding: 4px 7px;
+  border-radius: 5px;
+  background: #222222;
+}
+
+/* Favorite button */
+
+.favorite-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.75);
+  color: #ffffff;
+  font-size: 22px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.favorite-button:hover {
+  transform: scale(1.1);
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.favorite-button:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+.favorite-active {
+  color: #e50914;
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
+  .movie-card-content {
+    padding: 12px;
+  }
+
+  .movie-card-title {
+    font-size: 16px;
+  }
+
+  .favorite-button {
+    width: 34px;
+    height: 34px;
+    font-size: 19px;
+  }
+}
+.movie-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+/* Tablet */
+
+@media (max-width: 1000px) {
+  .movie-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Small tablet */
+
+@media (max-width: 750px) {
+  .movie-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 500px) {
+  .movie-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+//MOVIE MODAL 
+/* Movie Modal */
+
+.movie-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.movie-modal {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 24px;
+  border: 1px solid #333333;
+  border-radius: 14px;
+  background: #171717;
+  color: #ffffff;
+}
+
+.movie-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: #222222;
+  color: #ffffff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.movie-modal-close:hover {
+  background: #333333;
+}
+
+.movie-modal-content {
+  display: flex;
+  gap: 24px;
+}
+
+.movie-modal-poster {
+  width: 240px;
+  height: 360px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.movie-modal-details {
+  padding-top: 10px;
+}
+
+.movie-modal-details h2 {
+  margin: 0 0 16px;
+  font-size: 28px;
+}
+
+.movie-modal-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.movie-modal-info span {
+  padding: 5px 9px;
+  border-radius: 5px;
+  background: #222222;
+  color: #cccccc;
+  font-size: 14px;
+}
+
+.movie-modal-description {
+  margin: 0;
+  color: #bbbbbb;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .movie-modal {
+    padding: 18px;
+  }
+
+  .movie-modal-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .movie-modal-poster {
+    width: 180px;
+    height: 270px;
+  }
+
+  .movie-modal-details {
+    width: 100%;
+  }
+
+  .movie-modal-details h2 {
+    font-size: 22px;
+  }
+}
