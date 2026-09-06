@@ -1,9 +1,11 @@
+import { Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
+
 function App() {
   return (
-    <div>
-      <h1>CineMood</h1>
-      <p>What are you feeling today?</p>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+    </Routes>
   )
 }
 
