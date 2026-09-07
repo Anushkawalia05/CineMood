@@ -1,0 +1,34 @@
+:root {
+    /* Main Colors */
+    --primary: #e50914;
+    --secondary: #8b5cf6;
+
+    /* Background Colors */
+    --background: #0f0f14;
+    --surface: #18181f;
+    --surface-light: #22222b;
+
+    /* Text Colors */
+    --text: #ffffff;
+    --muted-text: #a1a1aa;
+
+    /* Borders */
+    --border: #2f2f38;
+
+    /* Effects */
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+
+    /* Border Radius */
+    --radius: 8px;
+    --radius-lg: 12px;
+
+    /* Spacing */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+
+    /* Layout */
+    --container-width: 1200px;
+}
