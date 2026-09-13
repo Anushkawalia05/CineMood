@@ -68,7 +68,7 @@ const fallbackMovies = [
     {
         id: 7,
         title: "The Notebook",
-        poster: "https://image.tmdb.org/t/p/w500/rNzQj1sW9Y7hR3H5Vq6JvW6Qf9M.jpg",
+        poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV8Gt4TdlxrctJgf9QLKdLZ1oxZaPXNfrO82Y9GagqPA&s",
         rating: 7.8,
         genre: ["Romance", "Drama"],
         year: 2004,

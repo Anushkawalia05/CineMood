@@ -40,4 +40,4 @@ function SearchBar({ onSearch, placeholder = "Search for a movie..." }) {
   );
 }
 
-export default SearchBar;`
+export default SearchBar;
