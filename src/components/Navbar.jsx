@@ -1,29 +1,32 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/navbar.css";
 
 function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-
-        <a href="/" className="navbar-logo">
+        <Link to="/" className="navbar-logo">
           🎬 CineMood
-        </a>
+        </Link>
 
         <div className="navbar-links">
-          <a href="/" className="navbar-link">
+          <Link to="/" className="navbar-link">
             Home
-          </a>
+          </Link>
 
-          <a href="/movies" className="navbar-link">
+          <Link to="/movies" className="navbar-link">
             Movies
-          </a>
+          </Link>
 
-          <a href="/favorites" className="navbar-link">
+          <Link to="/favorites" className="navbar-link">
             Favorites
-          </a>
-        </div>
+          </Link>
 
+          <Link to="/login" className="navbar-link">
+            Login
+          </Link>
+        </div>
       </div>
     </nav>
   );
