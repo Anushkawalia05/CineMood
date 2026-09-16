@@ -1,219 +1,203 @@
+/* Search Bar */
+
 .search-bar {
   width: 100%;
-  max-width: 700px;
+  max-width: 850px;
   margin: 0 auto;
 }
 
-.search-label {
-  display: block;
-  margin-bottom: 8px;
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 600;
-}
-
 .search-input-container {
+  width: 100%;
   display: flex;
-  gap: 10px;
+  align-items: center;
+  gap: 8px;
 }
 
 .search-input {
   flex: 1;
   min-width: 0;
-  padding: 12px 14px;
-  border: 1px solid #333333;
-  border-radius: 8px;
-  background: #171717;
+  height: 55px;
+
+  padding: 0 18px 0 48px;
+
+  border: 2px solid #ff1760;
+  border-radius: 28px;
+
+  background: #111421;
   color: #ffffff;
-  font-size: 15px;
+
+  font-size: 16px;
   outline: none;
 }
 
 .search-input::placeholder {
-  color: #888888;
+  color: #999ba8;
 }
 
 .search-input:focus {
-  border-color: #e50914;
+  box-shadow: 0 0 0 3px rgba(255, 23, 96, 0.18);
+}
+
+.search-icon {
+  position: absolute;
+  margin-left: 22px;
+  color: #ffffff;
+  font-size: 25px;
+  pointer-events: none;
+  transform: rotate(-20deg);
 }
 
 .search-button {
-  padding: 12px 18px;
+  height: 55px;
+  min-width: 150px;
+
+  padding: 0 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
   border: none;
-  border-radius: 8px;
-  background: #e50914;
+  border-radius: 28px;
+
+  background: linear-gradient(135deg, #ff1760, #ff3d72);
   color: #ffffff;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: opacity 0.2s ease;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .search-button:hover {
-  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 23, 96, 0.25);
 }
 
-.search-button:focus-visible {
-  outline: 2px solid #ffffff;
-  outline-offset: 2px;
+.search-button span {
+  font-size: 25px;
+  transform: rotate(-20deg);
 }
 
-@media (max-width: 600px) {
-  .search-input-container {
-    flex-direction: column;
-  }
-
-  .search-button {
-    width: 100%;
-  }
-}
-
-/* Loading */
-
-.loading {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 50px 20px;
-  color: #ffffff;
-  text-align: center;
-}
-
-.loading-spinner {
-  width: 38px;
-  height: 38px;
-  margin-bottom: 14px;
-  border: 4px solid #333333;
-  border-top-color: #e50914;
-  border-radius: 50%;
-  animation: loading-spin 0.8s linear infinite;
-}
-
-.loading p {
-  margin: 0;
-  color: #aaaaaa;
-  font-size: 14px;
-}
-
-@keyframes loading-spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* Error Message */
-
-.error-message {
-  width: 100%;
-  padding: 18px 20px;
-  border: 1px solid #5a2020;
-  border-radius: 8px;
-  background: #241515;
-  color: #ffb3b3;
-  text-align: center;
-}
-
-.error-message p {
-  margin: 0;
-  font-size: 14px;
-}
-
-/* Empty State */
-
-.empty-state {
-  width: 100%;
-  padding: 50px 20px;
-  text-align: center;
-  color: #ffffff;
-}
-
-.empty-state h3 {
-  margin: 0 0 10px;
-  font-size: 22px;
-}
-
-.empty-state p {
-  margin: 0;
-  color: #aaaaaa;
-  font-size: 14px;
-}
-
-/* Home */
+/* Home Page */
 
 .home-page {
-  min-height: 100vh;
+  min-height: calc(100vh - 70px);
+
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 60px 20px;
+
+  padding: 70px 25px;
   box-sizing: border-box;
 }
 
 .home-hero {
   width: 100%;
-  max-width: 850px;
+  max-width: 950px;
   text-align: center;
 }
 
 .home-tagline {
-  font-size: 1rem;
-  letter-spacing: 2px;
+  margin: 0 0 20px;
+
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 5px;
   text-transform: uppercase;
 }
 
 .home-hero h1 {
-  font-size: 3rem;
-  margin: 20px 0;
+  margin: 0 0 22px;
+  color: #ffffff;
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  line-height: 1.1;
 }
 
 .home-description {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
+  max-width: 700px;
+  margin: 0 auto 35px;
+
+  color: #eeeeee;
+  font-size: 20px;
+  line-height: 1.6;
 }
 
 .home-discover-button {
-  margin-top: 25px;
-  padding: 12px 24px;
+  margin-top: 28px;
+  padding: 14px 30px;
+
   border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 1rem;
+  border-radius: 28px;
+
+  background: linear-gradient(135deg, #ff1760, #ff3d72);
+  color: #ffffff;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-/* Discover */
+.home-discover-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 23, 96, 0.3);
+}
+
+/* Discover Page */
 
 .discover-page {
-  min-height: 70vh;
-  padding: 50px 6%;
+  min-height: calc(100vh - 70px);
+  padding: 30px 5% 70px;
   box-sizing: border-box;
 }
 
 .discover-header {
+  max-width: 950px;
+  margin: 0 auto 38px;
   text-align: center;
-  max-width: 750px;
-  margin: 0 auto 35px;
 }
 
 .discover-tagline {
+  margin: 0 0 22px;
+
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 5px;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 0.85rem;
-  margin-bottom: 10px;
 }
 
 .discover-header h1 {
-  font-size: 2.8rem;
-  margin: 0 0 15px;
+  margin: 0 0 22px;
+
+  color: #ffffff;
+  font-size: clamp(2.3rem, 5vw, 3.5rem);
+  line-height: 1.15;
+}
+
+.discover-header h1 span {
+  color: #ff1760;
 }
 
 .discover-header p:last-child {
-  font-size: 1.05rem;
-  line-height: 1.6;
+  margin: 0;
+
+  color: #eeeeee;
+  font-size: 20px;
+  line-height: 1.5;
 }
 
+/* Mood Buttons */
+
 .discover-controls {
-  max-width: 1000px;
+  max-width: 850px;
   margin: 0 auto 40px;
 }
 
@@ -221,53 +205,48 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 25px;
+  gap: 12px;
+  margin-bottom: 32px;
 }
 
 .mood-buttons button {
-  padding: 9px 18px;
-  border: 1px solid #ccc;
-  border-radius: 20px;
+  padding: 12px 24px;
+
+  border: 2px solid #ff1760;
+  border-radius: 25px;
+
   background: transparent;
-  cursor: pointer;
-  font-size: 0.95rem;
-  transition: 0.2s ease;
+  color: #ffffff;
+
+  font-size: 16px;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
 .mood-buttons button:hover {
   transform: translateY(-2px);
+  background: rgba(255, 23, 96, 0.18);
 }
 
 .mood-buttons .mood-active {
-  font-weight: 600;
+  background: linear-gradient(135deg, #ff1760, #ff3d72);
+  font-weight: 700;
 }
 
+/* Empty State */
+
 .no-movies {
+  padding: 70px 20px;
   text-align: center;
-  padding: 60px 20px;
 }
 
 .no-movies h2 {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .no-movies p {
-  opacity: 0.7;
-}
-
-@media (max-width: 700px) {
-  .discover-page {
-    padding: 35px 20px;
-  }
-
-  .discover-header h1 {
-    font-size: 2.2rem;
-  }
-
-  .mood-buttons {
-    gap: 8px;
-  }
+  color: #cccccc;
 }
 
 /* Simple Pages */
@@ -285,16 +264,14 @@
 }
 
 .simple-page-content h1 {
-  font-size: 2.7rem;
   margin: 15px 0 25px;
+  font-size: 2.7rem;
 }
 
 .simple-page-content p:not(.discover-tagline) {
   line-height: 1.7;
   margin-bottom: 20px;
 }
-
-/* Feedback */
 
 .feedback-content {
   max-width: 650px;
@@ -304,20 +281,25 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  text-align: left;
   margin-top: 30px;
+  text-align: left;
 }
 
 .feedback-form label {
-  font-weight: 600;
   margin-top: 10px;
+  font-weight: 600;
 }
 
 .feedback-form input,
 .feedback-form textarea {
   padding: 12px;
-  border: 1px solid #ccc;
+
+  border: 1px solid #ff1760;
   border-radius: 8px;
+
+  background: #111421;
+  color: #ffffff;
+
   font: inherit;
   box-sizing: border-box;
 }
@@ -329,12 +311,55 @@
 .feedback-form button {
   margin-top: 15px;
   padding: 12px 20px;
+
   border: none;
-  border-radius: 8px;
-  cursor: pointer;
+  border-radius: 25px;
+
+  background: linear-gradient(135deg, #ff1760, #ff3d72);
+  color: #ffffff;
+
   font-size: 1rem;
+  font-weight: 700;
 }
 
 .feedback-success {
   margin-top: 30px;
+}
+
+/* Responsive */
+
+@media (max-width: 700px) {
+  .discover-page {
+    padding: 35px 20px 50px;
+  }
+
+  .discover-header h1 {
+    font-size: 2.3rem;
+  }
+
+  .discover-header p:last-child {
+    font-size: 17px;
+  }
+
+  .mood-buttons {
+    gap: 8px;
+  }
+
+  .mood-buttons button {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+
+  .search-input-container {
+    flex-direction: column;
+  }
+
+  .search-input {
+    width: 100%;
+    flex: none;
+  }
+
+  .search-button {
+    width: 100%;
+  }
 }

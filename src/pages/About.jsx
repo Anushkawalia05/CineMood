@@ -16,6 +16,8 @@ function About() {
                     Built as a React-based movie discovery application for
                     our Front End Engineering project.
                 </p>
+                built in section. react based content used to pursue the based movie factor
+                built in form of the website
             </section>
         </main>
     );
