@@ -1,0 +1,19 @@
+.about-page-content { width: min(1100px, calc(100% - 40px)); margin: 0 auto; padding: clamp(44px, 8vw, 96px) 0; }
+.about-page-content > .home-section-kicker { margin: 0 0 12px; }
+.about-page-content > h1 { margin: 0; font-size: clamp(2.8rem, 7vw, 5.4rem); letter-spacing: -.06em; line-height: 1; }
+.about-page-content > h1 span { color: #ff8eae; }
+.about-lede { max-width: 740px; margin: 20px 0 42px; color: #cbc4d2; font-size: clamp(1.05rem, 2vw, 1.3rem); line-height: 1.75; }
+.about-feature-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.about-feature-grid article { min-height: 200px; padding: 24px; border: 1px solid rgba(255,255,255,.11); border-radius: 20px; background: linear-gradient(145deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); }
+.about-feature-grid article > span { color: #ff9bb5; font-size: .82rem; font-weight: 800; letter-spacing: .1em; }
+.about-feature-grid h2 { margin: 20px 0 9px; font-size: 1.25rem; }
+.about-feature-grid p, .about-credits p { color: #bdb6c5; line-height: 1.7; }
+.about-credits { margin-top: 56px; padding: clamp(24px, 5vw, 44px); border: 1px solid rgba(255,142,174,.2); border-radius: 24px; background: radial-gradient(ellipse at 0 0, rgba(210,65,120,.13), transparent 55%), #17151e; }
+.about-credits .home-section-kicker { margin: 0 0 10px; }
+.about-credits h2 { margin: 0; font-size: clamp(1.45rem, 3vw, 2rem); }
+.about-credits a { color: #ffabc0; }
+.tmdb-logo-link { display: inline-flex; align-items: center; justify-content: center; margin: 10px 0; padding: 8px; border-radius: 12px; background: #0d253f; }
+.tmdb-logo-link img { display: block; width: 64px; height: 64px; object-fit: contain; }
+.about-credits .tmdb-disclaimer { padding-top: 14px; border-top: 1px solid rgba(255,255,255,.1); color: #f2dfe7; font-size: .9rem; }
+.about-credit-link { display: inline-block; margin-top: 6px; font-weight: 700; }
+@media (max-width: 760px) { .about-feature-grid { grid-template-columns: 1fr; } .about-feature-grid article { min-height: auto; } }

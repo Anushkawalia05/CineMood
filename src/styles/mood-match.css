@@ -1,0 +1,52 @@
+.mood-match-page {
+  width: min(1240px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: clamp(40px, 7vw, 86px) 0 88px;
+  color: #f8f4fa;
+}
+
+.mood-match-intro { max-width: 760px; margin-bottom: 36px; }
+.mood-match-intro .home-section-kicker { margin: 0 0 12px; }
+.mood-match-intro h1 { margin: 0; font-size: clamp(2.4rem, 6vw, 4.5rem); letter-spacing: -.055em; line-height: 1; }
+.mood-match-intro h1 span { color: #ff8eae; }
+.mood-match-intro > p:last-child { max-width: 600px; color: #c9c2d0; font-size: 1.08rem; line-height: 1.7; }
+
+.mood-match-panel {
+  padding: clamp(22px, 4vw, 42px);
+  border: 1px solid rgba(255,255,255,.11);
+  border-radius: 24px;
+  background: radial-gradient(ellipse at 10% 0%, rgba(186,64,110,.15), transparent 45%), #17151e;
+  box-shadow: 0 22px 65px rgba(0,0,0,.2);
+}
+.mood-match-step-heading { display: flex; align-items: flex-start; gap: 16px; }
+.mood-match-step { display: grid; width: 42px; height: 42px; flex: 0 0 42px; place-items: center; border: 1px solid rgba(255,142,174,.45); border-radius: 14px; color: #ff9bb5; font-weight: 800; }
+.mood-match-step-heading h2 { margin: 0 0 4px; font-size: 1.3rem; }
+.mood-match-step-heading p, .mood-match-time small, .mood-match-range small { display: block; margin: 0; color: #aaa4b2; font-size: .9rem; }
+.mood-match-options { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0 30px 58px; }
+.mood-match-option { padding: 10px 16px; border: 1px solid rgba(255,255,255,.16); border-radius: 999px; background: #201e28; color: #e6e0ea; font: inherit; cursor: pointer; transition: border-color .18s ease, background .18s ease, transform .18s ease; }
+.mood-match-option:hover { transform: translateY(-2px); border-color: #ff8eae; }
+.mood-match-option.is-selected { border-color: #ff8eae; background: linear-gradient(120deg, rgba(230,72,121,.28), rgba(130,70,133,.24)); color: #fff; box-shadow: 0 0 0 3px rgba(255,142,174,.08); }
+.mood-match-option:focus-visible, .mood-match-time select:focus-visible, .mood-match-range input:focus-visible { outline: 2px solid #ff9bb5; outline-offset: 3px; }
+.mood-match-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding-top: 25px; border-top: 1px solid rgba(255,255,255,.1); }
+.mood-match-range { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; }
+.mood-match-range strong, .mood-match-time strong { display: block; margin-bottom: 4px; }
+.mood-match-range input { grid-column: 1 / -1; width: 100%; accent-color: #ff6592; cursor: pointer; }
+.mood-match-value { color: #ff9bb5; font-weight: 800; }
+.mood-match-time select { display: block; width: 100%; margin-top: 13px; padding: 12px 14px; border: 1px solid rgba(255,255,255,.16); border-radius: 12px; background: #211f29; color: #f8f4fa; font: inherit; }
+.mood-match-results { margin-top: 56px; }
+.mood-match-results .home-section-heading { align-items: end; }
+.mood-match-results .home-section-kicker { margin-bottom: 7px; }
+.mood-match-count { color: #ff9bb5; font-weight: 700; white-space: nowrap; }
+.movie-card-runtime { margin: 10px 0 0; color: #bcb5c4; font-size: .85rem; }
+.movie-card-match-reason { margin: 11px 0 0; color: #ffd0dc; font-size: .84rem; line-height: 1.5; }
+
+@media (max-width: 680px) {
+  .mood-match-page { width: min(100% - 28px, 1240px); padding-top: 38px; }
+  .mood-match-options { margin-left: 0; }
+  .mood-match-inputs { grid-template-columns: 1fr; }
+  .mood-match-results .home-section-heading { align-items: flex-start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mood-match-option { transition: none; }
+}

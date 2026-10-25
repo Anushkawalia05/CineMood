@@ -1,48 +1,21 @@
-import { useEffect, useState } from "react";
-import { fetchMovies } from "../services/movieApi";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchMovies } from "../features/movies/moviesSlice";
 
 function useMovies(query = "") {
-    const [movies, setMovies] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+  const dispatch = useDispatch();
+  const { items, status, error, activeQuery } = useSelector((state) => state.movies);
 
-    useEffect(() => {
-        let isMounted = true;
+  useEffect(() => {
+    const request = dispatch(fetchMovies(query));
+    return () => request.abort();
+  }, [dispatch, query]);
 
-        async function loadMovies() {
-            setLoading(true);
-            setError(null);
-
-            try {
-                const data = await fetchMovies(query);
-
-                if (isMounted) {
-                    setMovies(data);
-                }
-            } catch (err) {
-                if (isMounted) {
-                    setError(err.message);
-                    setMovies([]);
-                }
-            } finally {
-                if (isMounted) {
-                    setLoading(false);
-                }
-            }
-        }
-
-        loadMovies();
-
-        return () => {
-            isMounted = false;
-        };
-    }, [query]);
-
-    return {
-        movies,
-        loading,
-        error
-    };
+  return {
+    movies: items,
+    loading: status === "idle" || status === "loading" || activeQuery !== query,
+    error: status === "failed" ? error : ""
+  };
 }
 
 export default useMovies;

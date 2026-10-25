@@ -1,4 +1,3 @@
-import React from "react";
 import "../styles/movie.css";
 
 function MovieModal({ movie, onClose }) {
@@ -43,6 +42,7 @@ function MovieModal({ movie, onClose }) {
               src={poster}
               alt={`${title} movie poster`}
               className="movie-modal-poster"
+              onError={(event) => { event.currentTarget.onerror = null; event.currentTarget.src = "/poster-placeholder.svg"; }}
             />
           )}
 
@@ -51,7 +51,7 @@ function MovieModal({ movie, onClose }) {
 
             <div className="movie-modal-info">
               {rating !== undefined && (
-                <span>⭐ {rating}</span>
+                <span className="rating-chip"><span aria-hidden="true">★</span> {rating}</span>
               )}
 
               {year && (

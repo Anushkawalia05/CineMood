@@ -1,4 +1,5 @@
-import React from "react";
+import { Link } from "react-router-dom";
+import Icon from "./Icon";
 import "../styles/footer.css";
 
 function Footer() {
@@ -7,14 +8,17 @@ function Footer() {
       <div className="footer-container">
 
         <div className="footer-brand">
-          <h2>🎬 CineMood</h2>
+          <h2><span className="footer-brand-icon"><Icon name="film" size={17} /></span> CineMood</h2>
           <p>Find the perfect movie for your mood.</p>
         </div>
 
         <div className="footer-links">
-          <a href="/">Home</a>
-          <a href="/movies">Movies</a>
-          <a href="/favorites">Favorites</a>
+          <Link to="/">Home</Link>
+          <Link to="/movies">Movies</Link>
+          <Link to="/favorites">Favorites</Link>
+          <Link to="/mood-match">Mood Match</Link>
+          <Link to="/about">About & credits</Link>
+          <Link to="/feedback">Feedback</Link>
         </div>
 
       </div>

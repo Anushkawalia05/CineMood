@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import Icon from "./Icon";
 import "../styles/home.css";
 
 function SearchBar({
   onSearch,
-  placeholder = "Search for a movie..."
+  placeholder = "Search for a movie...",
+  initialValue = ""
 }) {
-  const [searchText, setSearchText] = useState("");
+  const [searchText, setSearchText] = useState(initialValue);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -18,7 +20,7 @@ function SearchBar({
   return (
     <form className="search-bar" onSubmit={handleSubmit}>
       <div className="search-input-container">
-        <span className="search-icon">⌕</span>
+        <span className="search-icon"><Icon name="search" size={19} /></span>
 
         <input
           id="movie-search"
@@ -31,7 +33,7 @@ function SearchBar({
         />
 
         <button type="submit" className="search-button">
-          <span>⌕</span>
+          <Icon name="search" size={17} />
           Search
         </button>
       </div>
