@@ -1,36 +1,20 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MovieGrid from "../components/MovieGrid";
 import fallbackMovies from "../data/fallbackMovies";
+import { useLibrary } from "../hooks/useLibrary";
+import Icon from "../components/Icon";
+import { Link } from "react-router-dom";
 import "../styles/home.css";
 import "../styles/movie.css";
 
 function Favorites() {
   const navigate = useNavigate();
 
-  const [favoriteIds, setFavoriteIds] = useState(() => {
-    const saved = localStorage.getItem("favorites");
-    return saved ? JSON.parse(saved) : [];
-  });
-
-  const favoriteMovies = fallbackMovies.filter((movie) =>
-    favoriteIds.includes(movie.id)
-  );
-
-  useEffect(() => {
-    localStorage.setItem(
-      "favorites",
-      JSON.stringify(favoriteIds)
-    );
-  }, [favoriteIds]);
-
-  const handleFavorite = (movie) => {
-    setFavoriteIds((current) =>
-      current.includes(movie.id)
-        ? current.filter((id) => id !== movie.id)
-        : [...current, movie.id]
-    );
-  };
+  const { favoriteIds, watchlistIds, toggleFavorite, toggleWatchlist } = useLibrary();
+  const [collection, setCollection] = useState("favorites");
+  const activeIds = collection === "favorites" ? favoriteIds : watchlistIds;
+  const activeMovies = fallbackMovies.filter((movie) => activeIds.includes(movie.id));
 
   return (
     <main className="favorites-page">
@@ -40,29 +24,37 @@ function Favorites() {
         </p>
 
         <h1>
-          Favorite <span>Movies</span> ❤️
+          Favorite <span>Movies</span> <Icon className="discover-title-icon" name="heart" size={27} />
         </h1>
 
         <p>
-          Keep the movies you never want to lose track of.
+          A little shelf of films you love and the ones you want to watch next.
         </p>
       </section>
 
-      {favoriteMovies.length > 0 ? (
+      <div className="collection-tabs" role="tablist" aria-label="Your movie collection">
+        <button type="button" role="tab" aria-selected={collection === "favorites"} className={collection === "favorites" ? "is-active" : ""} onClick={() => setCollection("favorites")}>Favorites <span>{favoriteIds.length}</span></button>
+        <button type="button" role="tab" aria-selected={collection === "watchlist"} className={collection === "watchlist" ? "is-active" : ""} onClick={() => setCollection("watchlist")}>Watch later <span>{watchlistIds.length}</span></button>
+      </div>
+
+      {activeMovies.length > 0 ? (
         <MovieGrid
-          movies={favoriteMovies}
+          movies={activeMovies}
           onMovieClick={(movie) => {
             navigate(`/movie/${movie.id}`);
           }}
-          onFavorite={handleFavorite}
+          onFavorite={toggleFavorite}
           favorites={favoriteIds}
+          onWatchlist={toggleWatchlist}
+          watchlist={watchlistIds}
         />
       ) : (
         <div className="no-movies">
-          <h2>No favorites yet 🎬</h2>
+          <h2><Icon className="empty-state-icon" name="film" size={26} /> {collection === "favorites" ? "Your favorites shelf is waiting" : "Your watch-later list is empty"}</h2>
           <p>
-            Tap the ♡ on a movie to add it to your favorites.
+            {collection === "favorites" ? "Tap the heart on a movie to keep it close." : "Tap the plus on a movie to save it for later."}
           </p>
+          <Link className="empty-state-action" to="/movies">Explore the movie catalog <span aria-hidden="true">→</span></Link>
         </div>
       )}
     </main>

@@ -1,41 +1,41 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import MoodCard from "./MoodCard";
 
 const moods = [
   {
     id: 1,
     name: "Happy",
-    emoji: "😊",
+    emoji: "sun",
     description: "Feel-good movies to brighten your day."
   },
   {
     id: 2,
     name: "Sad",
-    emoji: "😢",
+    emoji: "moon",
     description: "Emotional movies for a quiet mood."
   },
   {
     id: 3,
     name: "Chill",
-    emoji: "😌",
+    emoji: "calm",
     description: "Relaxing movies for a laid-back mood."
   },
   {
     id: 4,
     name: "Excited",
-    emoji: "🤩",
+    emoji: "bolt",
     description: "Fun and energetic movies full of excitement."
   },
   {
     id: 5,
     name: "Scared",
-    emoji: "😱",
+    emoji: "sparkle",
     description: "Thrilling movies for an adrenaline rush."
   },
   {
     id: 6,
     name: "Romantic",
-    emoji: "❤️",
+    emoji: "heart",
     description: "Love stories for a romantic mood."
   }
 ];

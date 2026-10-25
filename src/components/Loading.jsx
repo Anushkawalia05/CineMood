@@ -1,4 +1,3 @@
-import React from "react";
 import "../styles/home.css";
 
 function Loading({ message = "Loading movies..." }) {

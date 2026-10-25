@@ -1,7 +1,11 @@
 .navbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
   width: 100%;
-  background: rgba(11, 2, 4, 0.96);
-  border-bottom: 1px solid rgba(255, 51, 68, 0.12);
+  background: rgba(9, 11, 22, .94);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid #252536;
   box-sizing: border-box;
 }
 
@@ -23,9 +27,7 @@
   align-items: center;
   gap: 2px;
 
-  color: #ffffff;
   text-decoration: none;
-
   font-size: 28px;
   font-weight: 800;
   letter-spacing: -1px;
@@ -41,7 +43,7 @@
 }
 
 .logo-pink {
-  color: #e50914;
+  color: #ff1760;
 }
 
 .navbar-links {
@@ -52,21 +54,22 @@
 
 .navbar-link {
   position: relative;
-
   padding: 25px 0;
 
-  color: #d8d0d2;
+  color: #eeeeee;
   text-decoration: none;
-
   font-size: 17px;
   font-weight: 500;
 
   transition: color 0.2s ease;
 }
 
-.navbar-link:hover,
+.navbar-link:hover {
+  color: #ff1760;
+}
+
 .navbar-link.active-link {
-  color: #e50914;
+  color: #ff1760;
 }
 
 .navbar-link.active-link::after {
@@ -78,7 +81,58 @@
   bottom: 17px;
 
   height: 2px;
-
-  background: #e50914;
+  background: #ff1760;
   border-radius: 10px;
+}
+
+.navbar-account { display: flex; align-items: center; gap: 10px; flex: 0 0 auto; }
+.navbar-user-name { max-width: 120px; overflow: hidden; color: #ffb5c8; font-size: .88rem; text-overflow: ellipsis; white-space: nowrap; }
+.navbar-signout { padding: 7px 10px; border: 1px solid rgba(255,255,255,.18); border-radius: 9px; background: transparent; color: #ddd6e1; font: inherit; font-size: .82rem; }
+.navbar-signout:hover { border-color: #ff9bb5; color: white; }
+
+@media (max-width: 700px) {
+  .navbar-container {
+    padding: 0 18px;
+  }
+
+  .navbar-logo {
+    font-size: 22px;
+  }
+
+  .logo-icon {
+    font-size: 22px;
+    margin-right: 5px;
+  }
+
+  .navbar-links {
+    max-width: 72vw;
+    gap: 18px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .navbar-links::-webkit-scrollbar { display: none; }
+
+  .navbar-link {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-container {
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+  }
+
+  .navbar-link {
+    padding: 5px 0;
+    flex: 0 0 auto;
+  }
+
+  .navbar-links { width: 100%; max-width: 100%; justify-content: flex-start; }
+
+  .navbar-link.active-link::after {
+    bottom: 0;
+  }
 }

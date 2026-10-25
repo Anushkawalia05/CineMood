@@ -1,4 +1,3 @@
-import React from "react";
 import MovieCard from "./MovieCard";
 import "../styles/movie.css";
 
@@ -6,7 +5,10 @@ function MovieGrid({
   movies = [],
   onMovieClick,
   onFavorite,
-  favorites = []
+  favorites = [],
+  matchReasonForMovie,
+  onWatchlist,
+  watchlist = []
 }) {
   if (movies.length === 0) {
     return null;
@@ -21,6 +23,9 @@ function MovieGrid({
           onMovieClick={onMovieClick}
           onFavorite={onFavorite}
           isFavorite={favorites.includes(movie.id)}
+          matchReason={matchReasonForMovie?.(movie)}
+          onWatchlist={onWatchlist}
+          isWatchlisted={watchlist.includes(movie.id)}
         />
       ))}
     </div>

@@ -39,6 +39,10 @@
   background: #222222;
 }
 
+.movie-card-poster-link { position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; background: transparent; text-align: left; }
+.movie-card-poster-link:focus-visible { outline: 3px solid #ff9bb5; outline-offset: -4px; }
+.movie-card-actions { position: absolute; top: 12px; right: 12px; z-index: 1; display: grid; gap: 8px; }
+
 .movie-card-poster img {
   width: 100%;
   height: 100%;
@@ -88,10 +92,6 @@
 /* Favorite Button */
 
 .favorite-button {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-
   width: 42px;
   height: 42px;
 
@@ -113,6 +113,11 @@
     background 0.2s ease;
 }
 
+.watchlist-button { width: 42px; height: 42px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.25); border-radius: 50%; background: rgba(0,0,0,.75); color: white; font-size: 23px; font-weight: 700; transition: transform .2s ease, background .2s ease; }
+.watchlist-button:hover { transform: scale(1.08); background: rgba(0,0,0,.95); }
+.watchlist-active { color: #a5f3c6; }
+.watchlist-button:focus-visible { outline: 2px solid white; outline-offset: 2px; }
+
 .favorite-button:hover {
   transform: scale(1.1);
   background: rgba(0, 0, 0, 0.95);
@@ -131,7 +136,7 @@
 
 .movie-details-page {
   min-height: 70vh;
-  padding: 50px 8%;
+  padding: clamp(30px, 5vw, 62px) clamp(20px, 8vw, 110px) 80px;
   box-sizing: border-box;
 }
 
@@ -157,19 +162,24 @@
   align-items: flex-start;
   gap: 50px;
 
-  max-width: 1000px;
+  max-width: 1120px;
+  padding: clamp(20px, 4vw, 42px);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 28px;
+  background: linear-gradient(145deg, rgba(255,255,255,.06), rgba(255,255,255,.015));
   margin: 0 auto;
 }
 
 .movie-details-poster {
   flex-shrink: 0;
-  width: 280px;
+  width: min(32%, 320px);
 }
 
 .movie-details-poster img {
   width: 100%;
   display: block;
-  border-radius: 12px;
+  border-radius: 18px;
+  box-shadow: 0 20px 55px rgba(0,0,0,.38);
 }
 
 .movie-details-content {
@@ -178,7 +188,8 @@
 
 .movie-details-content h1 {
   margin-bottom: 20px;
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  letter-spacing: -.045em;
 }
 
 .movie-details-info {
@@ -200,6 +211,17 @@
   line-height: 1.7;
 }
 
+.movie-details-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.movie-details-actions button { padding: 12px 16px; border: 1px solid rgba(255,255,255,.2); border-radius: 12px; background: #211f29; color: white; font: inherit; font-weight: 700; }
+.movie-details-actions button:first-child { border-color: rgba(255,142,174,.55); background: linear-gradient(135deg, #c33163, #87416f); }
+.movie-details-actions button:hover { transform: translateY(-1px); }
+.movie-related-section { width: min(1120px, 100%); margin: 68px auto 0; }
+.movie-related-section > .home-section-kicker { margin: 0 0 8px; }
+.movie-related-section > h2 { margin: 0 0 8px; font-size: clamp(1.6rem, 3vw, 2.3rem); letter-spacing: -.04em; }
+.movie-related-section > p:not(.home-section-kicker) { margin: 0 0 24px; color: #bdb6c5; }
+.movie-related-section .movie-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 700px) { .movie-details { flex-direction: column; align-items: center; } .movie-details-poster { width: min(78%, 300px); } .movie-details-content { width: 100%; } }
+
 /* Favorites Page */
 
 .favorites-page {
@@ -211,6 +233,11 @@
 .favorites-page .discover-header h1 span {
   color: #ff1760;
 }
+
+.collection-tabs { display: flex; justify-content: center; gap: 10px; margin: 0 auto 30px; }
+.collection-tabs button { padding: 11px 17px; border: 1px solid rgba(255,255,255,.14); border-radius: 999px; background: #201e28; color: #eee; font: inherit; cursor: pointer; }
+.collection-tabs button.is-active { border-color: #ff8eae; background: rgba(230,72,121,.22); color: #fff; }
+.collection-tabs span { margin-left: 5px; color: #ffb5c8; font-size: .85em; }
 
 /* Loading */
 
@@ -302,7 +329,7 @@
     font-size: 16px;
   }
 
-  .favorite-button {
+  .favorite-button, .watchlist-button {
     width: 36px;
     height: 36px;
     font-size: 22px;

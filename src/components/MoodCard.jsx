@@ -1,5 +1,5 @@
-import React from "react";
 import "../styles/mood.css";
+import Icon from "./Icon";
 
 function MoodCard({
   name,
@@ -16,7 +16,7 @@ function MoodCard({
       aria-pressed={selected}
     >
       <span className="mood-card-emoji" aria-hidden="true">
-        {emoji}
+        <Icon name={emoji} size={27} />
       </span>
 
       <h3 className="mood-card-title">{name}</h3>

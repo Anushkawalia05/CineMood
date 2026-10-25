@@ -1,17 +1,18 @@
 import fallbackMovies from "../data/fallbackMovies";
 
-export async function fetchMovies(query = "") {
-    if (!query) {
-        return fallbackMovies;
-    }
+// The app currently uses its bundled catalog, so it works without an API key.
+export async function searchMovies(query = "") {
+  const normalizedQuery = query.trim().toLocaleLowerCase();
+  if (!normalizedQuery) return fallbackMovies;
 
-    return fallbackMovies.filter((movie) =>
-        movie.title.toLowerCase().includes(query.toLowerCase())
-    );
+  return fallbackMovies.filter((movie) =>
+    [movie.title, movie.overview, ...movie.genre]
+      .join(" ")
+      .toLocaleLowerCase()
+      .includes(normalizedQuery)
+  );
 }
 
-export async function fetchMovieById(id) {
-    return fallbackMovies.find(
-        (movie) => movie.id === Number(id)
-    );
+export function getMovieById(id) {
+  return fallbackMovies.find((movie) => String(movie.id) === String(id)) ?? null;
 }
