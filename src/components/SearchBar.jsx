@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import "../styles/home.css";
 
-function SearchBar({ onSearch, placeholder = "Search for a movie..." }) {
+function SearchBar({
+  onSearch,
+  placeholder = "Search for a movie..."
+}) {
   const [searchText, setSearchText] = useState("");
 
   const handleSubmit = (event) => {
@@ -14,11 +17,9 @@ function SearchBar({ onSearch, placeholder = "Search for a movie..." }) {
 
   return (
     <form className="search-bar" onSubmit={handleSubmit}>
-      <label htmlFor="movie-search" className="search-label">
-        Search Movies
-      </label>
-
       <div className="search-input-container">
+        <span className="search-icon">⌕</span>
+
         <input
           id="movie-search"
           type="search"
@@ -29,11 +30,9 @@ function SearchBar({ onSearch, placeholder = "Search for a movie..." }) {
           autoComplete="off"
         />
 
-        <button
-          type="submit"
-          className="search-button"
-        >
-          🔍 Search
+        <button type="submit" className="search-button">
+          <span>⌕</span>
+          Search
         </button>
       </div>
     </form>
